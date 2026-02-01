@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💘</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #ff4d6d;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #adb5bd;
+      color: black;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="question">Will you be my Valentine? 💖</h1>
+    <button id="yesBtn" onclick="yesClicked()">Yes 💘</button>
+    <button id="noBtn" onclick="noClicked()">No 😒</button>
+  </div>
+
+  <script>
+    const messages = [
+      "Are you sure? 🥺",
+      "Think again 😢",
+      "Come on, don’t break my heart 💔",
+      "I’ll get chocolates 🍫",
+      "And flowers 🌹",
+      "And unlimited love 💕",
+      "Last chance 😭",
+      "Okay this is getting awkward…",
+      "You know you want to 😏"
+    ];
+
+    let count = 0;
+
+    function noClicked() {
+      const noBtn = document.getElementById("noBtn");
+      const question = document.getElementById("question");
+
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+
+      question.innerText = messages[count % messages.length];
+      count++;
+    }
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="
+          background: white;
+          padding: 50px;
+          border-radius: 20px;
+          text-align: center;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        ">
+          <h1 style="color:#ff4d6d;">YAYYY!! 💖🎉</h1>
+          <h2>You just made me the happiest person 😍</h2>
+          <p>Happy Valentine’s Day 💕</p>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
